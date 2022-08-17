@@ -25,7 +25,6 @@ contract NFTCollection is ERC721URIStorage {
 
     event NewMint(address sender, uint256 tokenId ,string _svg);
 
-    // We need to pass the name of our NFTs token and its symbol.
     constructor() ERC721 ("SquareNFT", "SQUARE") {
         console.log("This is my NFT contract. Woah!");
     }
@@ -58,10 +57,9 @@ contract NFTCollection is ERC721URIStorage {
     return colors[rand];
   }
 
-    // A function our user will hit to get their NFT.
     function mintNFT() public {
         require(currentMints < mintLimit, "No more NFTs available to mint :(");
-        // Get the current tokenId, this starts at 0.
+        
         uint256 newItemId = _tokenIds.current();
 
         string memory first = pickRandomFirstWord(newItemId);
@@ -72,16 +70,13 @@ contract NFTCollection is ERC721URIStorage {
         string memory randomColor = pickRandomColor(newItemId);
         string memory finalSvg = string(abi.encodePacked(svgPartOne, randomColor, svgPartTwo, combinedWord, "</text></svg>"));
 
-        // Get all the JSON metadata in place and base64 encode it.
         string memory json = Base64.encode(
             bytes(
                 string(
                     abi.encodePacked(
                         '{"name": "',
-                        // We set the title of our NFT as the generated word.
                         combinedWord,
                         '", "description": "A highly acclaimed collection of squares.", "image": "data:image/svg+xml;base64,',
-                        // We add data:image/svg+xml;base64 and then append our base64 encode our svg.
                         Base64.encode(bytes(finalSvg)),
                         '"}'
                     )
@@ -89,18 +84,12 @@ contract NFTCollection is ERC721URIStorage {
             )
         );
 
-        // Just like before, we prepend data:application/json;base64, to our data.
         string memory finalTokenUri = string(
             abi.encodePacked("data:application/json;base64,", json)
         );
 
-        console.log("\n--------------------");
-        console.log(finalTokenUri);
-        console.log("--------------------\n");
-
         _safeMint(msg.sender, newItemId);
         
-        // Update your URI!!!
         _setTokenURI(newItemId, finalTokenUri);
     
         _tokenIds.increment();
