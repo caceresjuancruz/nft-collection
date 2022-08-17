@@ -1,0 +1,34 @@
+body {
+    background-color: #802392 !important;
+}
+
+.btn-warning {
+    background-color: transparent !important;
+    border: 2px solid #fff !important;
+    display: inline-block !important;
+    width: 100px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.btn-warning:hover{
+    color: #03CEA4 !important;
+    border: 2px solid #03CEA4 !important;
+}
+
+.mintBtn {
+    background-color: #03CEA4 !important;
+    font-weight: bold !important;
+    font-size: x-large !important;
+}
+
+.mintBtn:hover {
+    color: #fff !important;
+}
+
+#waveText {
+    font-size: x-large;
+    outline: none;
+    font-weight: bold;
+}
