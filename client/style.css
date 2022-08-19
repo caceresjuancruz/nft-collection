@@ -32,3 +32,12 @@ body {
     outline: none;
     font-weight: bold;
 }
+
+#nftImage {
+    width: 25%;
+    border-radius: 30px;
+}
+
+.btnOpenSea {
+    font: bold;
+}

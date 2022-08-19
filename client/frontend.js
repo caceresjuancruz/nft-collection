@@ -1,5 +1,5 @@
 const JSON_CONTRACT_PATH = '../artifacts/contracts/NFTCollection.sol/NFTCollection.json';
-const contractAddress = '0x4dB59B72588f71bb32C353396d68467cd13f85B8'; 
+const contractAddress = '0xc0c335652C6Af7FDE7F2ec270528D48A2A051E8F'; 
 var currentAccount;
 var contract;
 const rinkebyId = '0x4';
@@ -53,8 +53,10 @@ const setEventListener = async () => {
   .on('data', function(event){
     getCurrentMints();
     $("#nftsContainer").empty();
-    $("#nftsContainer").append("<h3>Your new NFT: </h3>");
+    $("#nftsContainer").append("<h3 class='mb-5'>Your new NFT: </h3>");
     $("#nftsContainer").append(event.returnValues[2]);
+    console.log(event.returnValues[1]);
+    $("#nftsContainer").append("<div><a class='btn btn-info shadow mt-3 btnOpenSea' href='https://testnets.opensea.io/assets/0xc0c335652C6Af7FDE7F2ec270528D48A2A051E8F/"+event.returnValues[1]+"' target='_BLANK'><b>🌊 View on OpenSea </b></a></div>");
   })
   .on('error', function(error, receipt) {
     $("#nftsContainer").append("Error!");

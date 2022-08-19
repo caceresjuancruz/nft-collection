@@ -14,7 +14,7 @@ contract NFTCollection is ERC721URIStorage {
     uint public mintLimit = 100;
     uint public currentMints = 0;
 
-    string svgPartOne = "<svg class='rounded w-50' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMinYMin meet' viewBox='0 0 350 350'><style>.base { fill: white; font-family: serif; font-size: 24px; }</style><rect width='100%' height='100%' fill='";
+    string svgPartOne = "<svg id='nftImage' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMinYMin meet' viewBox='0 0 350 350'><style>.base { fill: white; font-family: serif; font-size: 24px; }</style><rect width='100%' height='100%' fill='";
     string svgPartTwo = "'/><text x='50%' y='50%' class='base' dominant-baseline='middle' text-anchor='middle'>";
 
     string[] firstWords = ["Mini", "Micro", "Macro", "Extra", "Mono", "Triple", "Double", "Simple", "Multi", "Super", "Basic"];
