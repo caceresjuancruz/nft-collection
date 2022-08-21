@@ -1,4 +1,4 @@
-const JSON_CONTRACT_PATH = '../artifacts/contracts/NFTCollection.sol/NFTCollection.json';
+const JSON_CONTRACT_PATH = './utils/NFTCollection.json';
 const contractAddress = '0xc0c335652C6Af7FDE7F2ec270528D48A2A051E8F'; 
 var currentAccount;
 var contract;
